@@ -147,7 +147,7 @@
     <!-- 左上角舍利子显示 -->
     <div class="fixed top-4 left-4 z-50">
         <div class="bg-gradient-to-r from-pink-600 to-purple-600 bg-opacity-90 backdrop-blur-sm text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg border border-pink-400">
-            <span class="text-pink-200">舍利子</span>
+            <span class="text-pink-200">舍利</span>
             <span class="text-pink-200 ml-1">✨</span>
             <span id="topRelicCount" class="ml-1" style="text-shadow: 0 0 10px #ff69b4;">0</span>
         </div>
@@ -188,9 +188,9 @@
                 <div class="text-3xl font-bold neon-text" id="meritCount">0</div>
             </div>
             
-            <!-- 寿命显示 -->
+            <!-- 时间显示 -->
             <div class="text-red-300 mb-4">
-                <div class="text-sm mb-2">寿命值 LIFE POINTS</div>
+                <div class="text-sm mb-2">时间值 TIME POINTS</div>
                 <div class="text-2xl font-bold" id="lifeCount" style="text-shadow: 0 0 10px #ff6b6b;">100</div>
                 <div class="w-full bg-gray-800 rounded-full h-2 mt-2 overflow-hidden">
                     <div class="bg-gradient-to-r from-red-500 to-orange-500 h-full rounded-full transition-all duration-500" id="lifeBar" style="width: 100%"></div>
@@ -206,9 +206,9 @@
                 </div>
             </div>
 
-            <!-- 舍利子显示 -->
+            <!-- 舍利显示 -->
             <div class="text-pink-300 mb-4">
-                <div class="text-sm mb-2">舍利子 RELIC GEMS ✨</div>
+                <div class="text-sm mb-2">舍利 RELIC GEMS ✨</div>
                 <div class="text-2xl font-bold" id="relicCount" style="text-shadow: 0 0 10px #ff69b4;">0</div>
                 <div class="text-xs text-gray-400 mt-1">
                     下次获得: <span id="nextRelicTime">--:--</span>
@@ -227,11 +227,11 @@
                 </div>
             </div>
             
-            <!-- 寿命衰减提示 -->
+            <!-- 时间衰减提示 -->
             <div class="text-orange-300 mb-4">
                 <div class="text-xs text-center p-2 bg-black bg-opacity-30 rounded-lg border border-orange-500">
-                    ⏰ <span class="text-red-400">寿命每小时自然减少1点</span><br>
-                    💀 <span class="text-gray-400">寿命为0时成就舍利子产出暂停</span>
+                    ⏰ <span class="text-red-400">时间每小时自然减少1点</span><br>
+                    💀 <span class="text-gray-400">时间为0时成就舍利产出暂停</span>
                 </div>
             </div>
             
@@ -250,32 +250,32 @@
         <div class="grid grid-cols-2 gap-3 mb-4">
             <button id="prayButton" class="cyber-button py-3 px-4 rounded-xl text-black font-bold text-sm relative">
                 <span class="relative z-10">🙏 拜佛祈福</span>
-                <div class="text-xs text-gray-800 mt-1">+1-5 功德 | -1 寿命 | 免费</div>
+                <div class="text-xs text-gray-800 mt-1">+1-5 功德 | -1 时间 | 免费</div>
             </button>
             
             <button id="drumButton" class="cyber-button py-3 px-4 rounded-xl text-black font-bold text-sm relative">
                 <span class="relative z-10">🥁 敲木鱼</span>
-                <div class="text-xs text-gray-800 mt-1">+2-6 功德 | -1 寿命 | -2 财富</div>
+                <div class="text-xs text-gray-800 mt-1">+2-6 功德 | -1 时间 | -2 财富</div>
             </button>
             
             <button id="charityButton" class="cyber-button py-3 px-4 rounded-xl text-black font-bold text-sm relative">
                 <span class="relative z-10">💝 行善事</span>
-                <div class="text-xs text-gray-800 mt-1">+5-15 功德 | +2 寿命 | -10 财富</div>
+                <div class="text-xs text-gray-800 mt-1">+5-15 功德 | +2 时间 | -10 财富</div>
             </button>
             
             <button id="scriptButton" class="cyber-button py-3 px-4 rounded-xl text-black font-bold text-sm relative">
                 <span class="relative z-10">📜 抄经书</span>
-                <div class="text-xs text-gray-800 mt-1">+8-20 功德 | -2 寿命 | -5 财富</div>
+                <div class="text-xs text-gray-800 mt-1">+8-20 功德 | -2 时间 | -5 财富</div>
             </button>
             
             <button id="fastButton" class="cyber-button py-3 px-4 rounded-xl text-black font-bold text-sm relative">
                 <span class="relative z-10">🥬 吃斋念佛</span>
-                <div class="text-xs text-gray-800 mt-1">+3-8 功德 | +1 寿命 | -3 财富</div>
+                <div class="text-xs text-gray-800 mt-1">+3-8 功德 | +1 时间 | -3 财富</div>
             </button>
             
             <button id="meditateButton" class="cyber-button py-3 px-4 rounded-xl text-black font-bold text-sm relative">
                 <span class="relative z-10">🧘 禅定冥想</span>
-                <div class="text-xs text-gray-800 mt-1">+10-25 功德 | -3 寿命 | 免费</div>
+                <div class="text-xs text-gray-800 mt-1">+10-25 功德 | -3 时间 | 免费</div>
             </button>
         </div>
         
@@ -285,12 +285,12 @@
             <div class="grid grid-cols-2 gap-2">
                 <button id="workButton" class="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 py-2 px-3 rounded-lg text-white font-bold text-xs transition-all duration-300">
                     💼 打工赚钱
-                    <div class="text-xs text-green-200 mt-1">+5-10 财富 | -2 寿命</div>
+                    <div class="text-xs text-green-200 mt-1">+5-10 财富 | -2 时间</div>
                 </button>
                 
                 <button id="businessButton" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 py-2 px-3 rounded-lg text-white font-bold text-xs transition-all duration-300">
                     🏪 经商贸易
-                    <div class="text-xs text-blue-200 mt-1">+8-15 财富 | -3 寿命</div>
+                    <div class="text-xs text-blue-200 mt-1">+8-15 财富 | -3 时间</div>
                 </button>
             </div>
         </div>
@@ -334,6 +334,44 @@
             </div>
             <div class="mt-3 text-xs text-gray-400 text-center">
                 解锁成就后每小时自动获得舍利 ⏰
+            </div>
+        </div>
+        
+        <!-- 游戏说明 -->
+        <div class="mt-8 p-6 bg-black bg-opacity-60 rounded-2xl border border-cyan-400 max-w-4xl mx-auto">
+            <h3 class="text-2xl font-bold text-center mb-6 neon-text">📖 游戏说明</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- 功能说明 -->
+                <div class="bg-gradient-to-br from-purple-900 to-indigo-900 p-4 rounded-xl border border-purple-400">
+                    <h4 class="text-purple-300 font-bold mb-3 text-lg">🎮 功能系统</h4>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <div><span class="text-cyan-400">法号：</span>登录系统，个人账号</div>
+                        <div><span class="text-purple-400">布道：</span>分享系统，邀请加入</div>
+                        <div><span class="text-green-400">基础行为：</span>行为系统1，不同行为积攒功能数值不同，部分行为需要散财，行为将增加或消耗时间值</div>
+                        <div><span class="text-yellow-400">赚取财富：</span>行为系统2，消耗不同时间值赚取不同数值财富</div>
+                        <div><span class="text-orange-400">机缘：</span>随机事件，每完成20个行为将触发1次机缘，获取随机奖励</div>
+                        <div><span class="text-blue-400">成就：</span>成就系统，完成成就系统任务获得成就，用于产出舍利</div>
+                        <div><span class="text-pink-400">舍利：</span>积分系统，通过获得成就产出，可用于兑换奖励或者延续时间，时间为0时将暂停产出舍利</div>
+                        <div><span class="text-red-400">积分商店：</span>使用舍利兑换功能卡或者延续时间</div>
+                    </div>
+                </div>
+                
+                <!-- 数值说明 -->
+                <div class="bg-gradient-to-br from-cyan-900 to-blue-900 p-4 rounded-xl border border-cyan-400">
+                    <h4 class="text-cyan-300 font-bold mb-3 text-lg">📊 数值系统</h4>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <div><span class="text-cyan-400">功德：</span>通过基础行为积攒功德</div>
+                        <div><span class="text-red-400">时间：</span>初始数值100，每小时消耗1点，不同基础行为会增加或减少该数值，赚取财富会减少该数值</div>
+                        <div><span class="text-yellow-400">财富：</span>初始数值50，基础行为消耗一定数值，赚取财富增加数值</div>
+                        <div><span class="text-pink-400">舍利：</span>持有不同成就将每小时产出不同数值的舍利，时间值为0时将暂停产出，可于商城兑换奖励或延续时间</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-4 text-center text-xs text-gray-400">
+                🙏 愿你在修行路上功德圆满，智慧增长 ✨<br>
+                <span class="text-orange-400">⚡ 当前为测试模式：时间每30秒减少1点，舍利每分钟产出</span>
             </div>
         </div>
     </div>
@@ -1144,9 +1182,9 @@
             // 显示获得提示
             let rewardText = "🍀 机缘获得：";
             if (rewards.merit) rewardText += ` 功德+${rewards.merit}`;
-            if (rewards.life) rewardText += ` 寿命+${rewards.life}`;
+            if (rewards.life) rewardText += ` 时间+${rewards.life}`;
             if (rewards.wealth) rewardText += ` 财富+${rewards.wealth}`;
-            if (rewards.relic) rewardText += ` 舍利子+${rewards.relic}`;
+            if (rewards.relic) rewardText += ` 舍利+${rewards.relic}`;
             
             showBlessing(rewardText);
             
@@ -1217,6 +1255,7 @@
             // 初始化显示和定时器
             updateDisplay();
             startRelicTimer();
+            startLifeDecay();
             
             // 检查是否有保存的登录状态
             const savedLoginUser = localStorage.getItem('currentUser');
@@ -1781,19 +1820,25 @@
                 return;
             }
             
+            // 检查时间是否为0，如果是则暂停舍利产出
+            if (lifePoints <= 0) {
+                nextRelicTimeEl.textContent = "时间耗尽，产出暂停";
+                return;
+            }
+            
             const now = Date.now();
             const timeSinceLastRelic = now - lastRelicTime;
-            const timePerRelic = (60 * 60 * 1000) / relicPerHour; // 每个舍利子需要的时间
+            const timePerRelic = (60 * 1000) / relicPerHour; // 测试模式：每分钟产出舍利（正式版本应该是60 * 60 * 1000）
             
             if (timeSinceLastRelic >= timePerRelic) {
-                // 可以获得舍利子
+                // 可以获得舍利
                 const relicsToGain = Math.floor(timeSinceLastRelic / timePerRelic);
                 relicPoints += relicsToGain;
                 lastRelicTime = now - (timeSinceLastRelic % timePerRelic);
                 updateDisplay();
                 
                 if (relicsToGain > 0) {
-                    showBlessing(`✨ 获得 ${relicsToGain} 个舍利子！`);
+                    showBlessing(`✨ 获得 ${relicsToGain} 个舍利！`);
                 }
             }
             
@@ -1840,11 +1885,11 @@
                 const amount = parseInt(button.dataset.amount);
                 if (amount === 100) {
                     lifePoints = 100; // 满血复活
-                    showBlessing("💖 满血复活！寿命已恢复至100！");
+                    showBlessing("💖 满血复活！时间已恢复至100！");
                 } else {
                     lifePoints += amount;
                     if (lifePoints > 100) lifePoints = 100;
-                    showBlessing(`💖 寿命增加 ${amount} 点！`);
+                    showBlessing(`💖 时间增加 ${amount} 点！`);
                 }
             } else if (type === 'gift') {
                 const gift = button.dataset.gift;
@@ -1887,7 +1932,7 @@
                     break;
                 case '佛祖护佑':
                     activeBuffs.lifeProtection = Date.now() + (24 * 60 * 60 * 1000); // 24小时
-                    showBlessing("🙏 佛祖护佑激活！24小时内寿命消耗减半！");
+                    showBlessing("🙏 佛祖护佑激活！24小时内时间消耗减半！");
                     break;
                 case '神秘礼盒':
                     const randomRewards = [
@@ -1896,9 +1941,9 @@
                             showMeritPopup(1000);
                             return "获得1000功德值！"; 
                         },
-                        () => { lifePoints = 100; return "寿命完全恢复！"; },
+                        () => { lifePoints = 100; return "时间完全恢复！"; },
                         () => { wealthPoints = 100; return "财富值满额！"; },
-                        () => { relicPoints += 50; return "获得50个舍利子！"; },
+                        () => { relicPoints += 50; return "获得50个舍利！"; },
                         () => { 
                             activeBuffs.meritBoost = Date.now() + (3 * 60 * 60 * 1000);
                             activeBuffs.lifeProtection = Date.now() + (3 * 60 * 60 * 1000);
@@ -1934,7 +1979,24 @@
             
             return finalCost;
         }
+        
+        // 时间衰减系统 - 每小时减少1点时间
+        function startLifeDecay() {
+            // 测试模式：每30秒减少1点时间（正式版本应该是60 * 60 * 1000）
+            setInterval(() => {
+                if (!gameOver && lifePoints > 0) {
+                    lifePoints -= 1;
+                    updateDisplay();
+                    
+                    if (lifePoints <= 0) {
+                        gameOverSequence();
+                    } else if (lifePoints <= 10) {
+                        showBlessing("⚠️ 时间即将耗尽！请尽快补充！");
+                    }
+                }
+            }, 30 * 1000); // 测试模式：30秒执行一次
+        }
 
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97164013831f08f5',t:'MTc1NTU3MDg1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9717711bc65de2f0',t:'MTc1NTU4MzM0NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
