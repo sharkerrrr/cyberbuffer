@@ -49,13 +49,19 @@
             transition: all 0.3s ease;
         }
         
-        .cyber-button:hover {
+        .cyber-button:hover:not(:disabled) {
             transform: scale(1.05);
             box-shadow: 0 0 20px rgba(0,255,255,0.8);
         }
         
-        .cyber-button:active {
+        .cyber-button:active:not(:disabled) {
             transform: scale(0.95);
+        }
+        
+        .cyber-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: linear-gradient(45deg, #666666, #888888);
         }
         
         .merit-particle {
@@ -169,7 +175,7 @@
             赛博拜佛
         </h1>
         <p class="text-center text-cyan-300 mb-4 text-sm">
-            CYBER BUDDHA v2.077
+            CYBER BUDDHA v2.088
         </p>
         
         <!-- 佛像容器 -->
@@ -191,7 +197,7 @@
             <!-- 时间显示 -->
             <div class="text-red-300 mb-4">
                 <div class="text-sm mb-2">时间值 TIME POINTS</div>
-                <div class="text-2xl font-bold" id="lifeCount" style="text-shadow: 0 0 10px #ff6b6b;">100</div>
+                <div class="text-2xl font-bold" id="lifeCount" style="text-shadow: 0 0 10px #ff6b6b;">120</div>
                 <div class="w-full bg-gray-800 rounded-full h-2 mt-2 overflow-hidden">
                     <div class="bg-gradient-to-r from-red-500 to-orange-500 h-full rounded-full transition-all duration-500" id="lifeBar" style="width: 100%"></div>
                 </div>
@@ -200,9 +206,9 @@
             <!-- 财富显示 -->
             <div class="text-yellow-300 mb-4">
                 <div class="text-sm mb-2">财富值 WEALTH POINTS</div>
-                <div class="text-2xl font-bold" id="wealthCount" style="text-shadow: 0 0 10px #ffd700;">50</div>
+                <div class="text-2xl font-bold" id="wealthCount" style="text-shadow: 0 0 10px #ffd700;">60</div>
                 <div class="w-full bg-gray-800 rounded-full h-2 mt-2 overflow-hidden">
-                    <div class="bg-gradient-to-r from-yellow-500 to-amber-500 h-full rounded-full transition-all duration-500" id="wealthBar" style="width: 50%"></div>
+                    <div class="bg-gradient-to-r from-yellow-500 to-amber-500 h-full rounded-full transition-all duration-500" id="wealthBar" style="width: 60%"></div>
                 </div>
             </div>
 
@@ -218,19 +224,19 @@
             <!-- 机缘系统显示 -->
             <div class="text-orange-300 mb-4">
                 <div class="text-sm mb-2">机缘值 FORTUNE POINTS 🍀</div>
-                <div class="text-lg font-bold" id="fortuneCount" style="text-shadow: 0 0 10px #ffa500;">0/20</div>
+                <div class="text-lg font-bold" id="fortuneCount" style="text-shadow: 0 0 10px #ffa500;">0/15</div>
                 <div class="w-full bg-gray-800 rounded-full h-2 mt-2 overflow-hidden">
                     <div class="bg-gradient-to-r from-orange-500 to-yellow-500 h-full rounded-full transition-all duration-500" id="fortuneBar" style="width: 0%"></div>
                 </div>
                 <div class="text-xs text-gray-400 mt-1">
-                    每20次行动触发一次机缘
+                    每15次行动触发一次机缘
                 </div>
             </div>
             
             <!-- 时间衰减提示 -->
             <div class="text-orange-300 mb-4">
                 <div class="text-xs text-center p-2 bg-black bg-opacity-30 rounded-lg border border-orange-500">
-                    ⏰ <span class="text-red-400">时间每小时自然减少1点</span><br>
+                    ⏰ <span class="text-red-400">时间每2分钟自然减少1点</span><br>
                     💀 <span class="text-gray-400">时间为0时成就舍利产出暂停</span>
                 </div>
             </div>
@@ -250,32 +256,32 @@
         <div class="grid grid-cols-2 gap-3 mb-4">
             <button id="prayButton" class="cyber-button py-3 px-4 rounded-xl text-black font-bold text-sm relative">
                 <span class="relative z-10">🙏 拜佛祈福</span>
-                <div class="text-xs text-gray-800 mt-1">+1-5 功德 | -1 时间 | 免费</div>
+                <div class="text-xs text-gray-800 mt-1">+3-8 功德 | -1 时间 | 免费</div>
             </button>
             
             <button id="drumButton" class="cyber-button py-3 px-4 rounded-xl text-black font-bold text-sm relative">
                 <span class="relative z-10">🥁 敲木鱼</span>
-                <div class="text-xs text-gray-800 mt-1">+2-6 功德 | -1 时间 | -2 财富</div>
+                <div class="text-xs text-gray-800 mt-1">+5-12 功德 | -1 时间 | -4 财富</div>
             </button>
             
             <button id="charityButton" class="cyber-button py-3 px-4 rounded-xl text-black font-bold text-sm relative">
                 <span class="relative z-10">💝 行善事</span>
-                <div class="text-xs text-gray-800 mt-1">+5-15 功德 | +2 时间 | -10 财富</div>
+                <div class="text-xs text-gray-800 mt-1">+12-25 功德 | +4 时间 | -15 财富</div>
             </button>
             
             <button id="scriptButton" class="cyber-button py-3 px-4 rounded-xl text-black font-bold text-sm relative">
                 <span class="relative z-10">📜 抄经书</span>
-                <div class="text-xs text-gray-800 mt-1">+8-20 功德 | -2 时间 | -5 财富</div>
+                <div class="text-xs text-gray-800 mt-1">+18-35 功德 | -2 时间 | -8 财富</div>
             </button>
             
             <button id="fastButton" class="cyber-button py-3 px-4 rounded-xl text-black font-bold text-sm relative">
                 <span class="relative z-10">🥬 吃斋念佛</span>
-                <div class="text-xs text-gray-800 mt-1">+3-8 功德 | +1 时间 | -3 财富</div>
+                <div class="text-xs text-gray-800 mt-1">+8-15 功德 | +2 时间 | -5 财富</div>
             </button>
             
             <button id="meditateButton" class="cyber-button py-3 px-4 rounded-xl text-black font-bold text-sm relative">
                 <span class="relative z-10">🧘 禅定冥想</span>
-                <div class="text-xs text-gray-800 mt-1">+10-25 功德 | -3 时间 | 免费</div>
+                <div class="text-xs text-gray-800 mt-1">+25-50 功德 | -5 时间 | 免费</div>
             </button>
         </div>
         
@@ -285,12 +291,12 @@
             <div class="grid grid-cols-2 gap-2">
                 <button id="workButton" class="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 py-2 px-3 rounded-lg text-white font-bold text-xs transition-all duration-300">
                     💼 打工赚钱
-                    <div class="text-xs text-green-200 mt-1">+5-10 财富 | -2 时间</div>
+                    <div class="text-xs text-green-200 mt-1">+8-15 财富 | -3 时间</div>
                 </button>
                 
                 <button id="businessButton" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 py-2 px-3 rounded-lg text-white font-bold text-xs transition-all duration-300">
                     🏪 经商贸易
-                    <div class="text-xs text-blue-200 mt-1">+8-15 财富 | -3 时间</div>
+                    <div class="text-xs text-blue-200 mt-1">+15-25 财富 | -5 时间</div>
                 </button>
             </div>
         </div>
@@ -313,23 +319,23 @@
         <div class="mt-6 p-4 bg-black bg-opacity-50 rounded-xl border border-purple-500">
             <h3 class="text-purple-300 font-bold mb-3 text-center">成就系统 ACHIEVEMENTS</h3>
             <div id="achievements" class="space-y-2 text-sm">
-                <div class="achievement text-gray-500" data-requirement="10" data-relic="1">
-                    <span class="mr-2">🔒</span>初心者 - 修行10次 <span class="text-pink-400">(+1✨/时)</span>
+                <div class="achievement text-gray-500" data-requirement="15" data-relic="1">
+                    <span class="mr-2">🔒</span>初心者 - 修行15次 <span class="text-pink-400">(+1✨/时)</span>
                 </div>
                 <div class="achievement text-gray-500" data-requirement="50" data-relic="2">
                     <span class="mr-2">🔒</span>虔诚者 - 修行50次 <span class="text-pink-400">(+2✨/时)</span>
                 </div>
-                <div class="achievement text-gray-500" data-requirement="100" data-relic="3">
-                    <span class="mr-2">🔒</span>修行者 - 修行100次 <span class="text-pink-400">(+3✨/时)</span>
+                <div class="achievement text-gray-500" data-requirement="150" data-relic="4">
+                    <span class="mr-2">🔒</span>修行者 - 修行150次 <span class="text-pink-400">(+4✨/时)</span>
                 </div>
-                <div class="achievement text-gray-500" data-requirement="300" data-relic="5">
-                    <span class="mr-2">🔒</span>善行者 - 行善事50次 <span class="text-pink-400">(+5✨/时)</span>
+                <div class="achievement text-gray-500" data-requirement="30" data-relic="3">
+                    <span class="mr-2">🔒</span>善行者 - 行善事30次 <span class="text-pink-400">(+3✨/时)</span>
                 </div>
-                <div class="achievement text-gray-500" data-requirement="500" data-relic="8">
-                    <span class="mr-2">🔒</span>觉悟者 - 修行500次 <span class="text-pink-400">(+8✨/时)</span>
+                <div class="achievement text-gray-500" data-requirement="400" data-relic="6">
+                    <span class="mr-2">🔒</span>觉悟者 - 修行400次 <span class="text-pink-400">(+6✨/时)</span>
                 </div>
-                <div class="achievement text-gray-500" data-requirement="1000" data-relic="15">
-                    <span class="mr-2">🔒</span>大师 - 功德值1000 <span class="text-pink-400">(+15✨/时)</span>
+                <div class="achievement text-gray-500" data-requirement="1500" data-relic="10">
+                    <span class="mr-2">🔒</span>大师 - 功德值1500 <span class="text-pink-400">(+10✨/时)</span>
                 </div>
             </div>
             <div class="mt-3 text-xs text-gray-400 text-center">
@@ -348,30 +354,34 @@
                     <div class="space-y-2 text-sm text-gray-300">
                         <div><span class="text-cyan-400">法号：</span>登录系统，个人账号</div>
                         <div><span class="text-purple-400">布道：</span>分享系统，邀请加入</div>
-                        <div><span class="text-green-400">基础行为：</span>行为系统1，不同行为积攒功能数值不同，部分行为需要散财，行为将增加或消耗时间值</div>
-                        <div><span class="text-yellow-400">赚取财富：</span>行为系统2，消耗不同时间值赚取不同数值财富</div>
-                        <div><span class="text-orange-400">机缘：</span>随机事件，每完成20个行为将触发1次机缘，获取随机奖励</div>
-                        <div><span class="text-blue-400">成就：</span>成就系统，完成成就系统任务获得成就，用于产出舍利</div>
-                        <div><span class="text-pink-400">舍利：</span>积分系统，通过获得成就产出，可用于兑换奖励或者延续时间，时间为0时将暂停产出舍利</div>
-                        <div><span class="text-red-400">积分商店：</span>使用舍利兑换功能卡或者延续时间</div>
+                        <div><span class="text-green-400">基础行为：</span>不同修行方式获得不同功德，部分需要财富支持</div>
+                        <div><span class="text-yellow-400">赚取财富：</span>消耗时间获得财富，支持修行活动</div>
+                        <div><span class="text-orange-400">机缘：</span>每完成15个行为触发随机奖励事件</div>
+                        <div><span class="text-blue-400">成就：</span>完成特定目标解锁成就，持续产出舍利</div>
+                        <div><span class="text-pink-400">舍利：</span>通过成就产出，可兑换奖励或延续时间</div>
+                        <div><span class="text-red-400">积分商店：</span>使用舍利兑换功能卡或延续时间</div>
+                        <div><span class="text-cyan-400">冷却系统：</span>修行按钮有3秒冷却，防止刷屏</div>
                     </div>
                 </div>
                 
                 <!-- 数值说明 -->
                 <div class="bg-gradient-to-br from-cyan-900 to-blue-900 p-4 rounded-xl border border-cyan-400">
-                    <h4 class="text-cyan-300 font-bold mb-3 text-lg">📊 数值系统</h4>
+                    <h4 class="text-cyan-300 font-bold mb-3 text-lg">📊 平衡优化</h4>
                     <div class="space-y-2 text-sm text-gray-300">
-                        <div><span class="text-cyan-400">功德：</span>通过基础行为积攒功德</div>
-                        <div><span class="text-red-400">时间：</span>初始数值100，每小时消耗1点，不同基础行为会增加或减少该数值，赚取财富会减少该数值</div>
-                        <div><span class="text-yellow-400">财富：</span>初始数值50，基础行为消耗一定数值，赚取财富增加数值</div>
-                        <div><span class="text-pink-400">舍利：</span>持有不同成就将每小时产出不同数值的舍利，时间值为0时将暂停产出，可于商城兑换奖励或延续时间</div>
+                        <div><span class="text-cyan-400">功德：</span>各修行方式功德产出更加平衡</div>
+                        <div><span class="text-red-400">时间：</span>初始120点，每2分钟减少1点，更宽松的时间管理</div>
+                        <div><span class="text-yellow-400">财富：</span>初始60点，赚钱效率提升，支持更多修行</div>
+                        <div><span class="text-orange-400">机缘：</span>15次行动触发，更频繁的惊喜</div>
+                        <div><span class="text-purple-400">成就：</span>门槛调整，更合理的进度节奏</div>
+                        <div><span class="text-pink-400">舍利：</span>产出平衡，商店价格优化</div>
+                        <div><span class="text-cyan-400">冷却：</span>3秒冷却防止恶意刷屏，保持游戏节奏</div>
                     </div>
                 </div>
             </div>
             
             <div class="mt-4 text-center text-xs text-gray-400">
                 🙏 愿你在修行路上功德圆满，智慧增长 ✨<br>
-                <span class="text-orange-400">⚡ 当前为测试模式：时间每30秒减少1点，舍利每分钟产出</span>
+                <span class="text-orange-400">⚡ 当前为测试模式：时间每2分钟减少1点，舍利每分钟产出</span>
             </div>
         </div>
     </div>
@@ -488,21 +498,21 @@
             <div class="mb-6 p-4 bg-black bg-opacity-50 rounded-xl border border-red-500">
                 <h4 class="text-red-300 font-bold mb-3 text-center">💖 时间延续</h4>
                 <div class="grid grid-cols-2 gap-3">
-                    <button class="relic-buy-btn bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="life" data-amount="10" data-cost="5">
-                        +10 时间
-                        <div class="text-xs text-red-200 mt-1">消耗 5✨</div>
+                    <button class="relic-buy-btn bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="life" data-amount="15" data-cost="3">
+                        +15 时间
+                        <div class="text-xs text-red-200 mt-1">消耗 3✨</div>
                     </button>
-                    <button class="relic-buy-btn bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="life" data-amount="25" data-cost="10">
-                        +25 时间
+                    <button class="relic-buy-btn bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="life" data-amount="35" data-cost="6">
+                        +35 时间
+                        <div class="text-xs text-red-200 mt-1">消耗 6✨</div>
+                    </button>
+                    <button class="relic-buy-btn bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="life" data-amount="60" data-cost="10">
+                        +60 时间
                         <div class="text-xs text-red-200 mt-1">消耗 10✨</div>
                     </button>
-                    <button class="relic-buy-btn bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="life" data-amount="50" data-cost="18">
-                        +50 时间
-                        <div class="text-xs text-red-200 mt-1">消耗 18✨</div>
-                    </button>
-                    <button class="relic-buy-btn bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="life" data-amount="100" data-cost="30">
+                    <button class="relic-buy-btn bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="life" data-amount="120" data-cost="18">
                         满时复活
-                        <div class="text-xs text-red-200 mt-1">消耗 30✨</div>
+                        <div class="text-xs text-red-200 mt-1">消耗 18✨</div>
                     </button>
                 </div>
             </div>
@@ -511,25 +521,25 @@
             <div class="mb-4 p-4 bg-black bg-opacity-50 rounded-xl border border-yellow-500">
                 <h4 class="text-yellow-300 font-bold mb-3 text-center">🎁 珍贵礼品</h4>
                 <div class="space-y-2">
-                    <button class="relic-buy-btn w-full bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="gift" data-gift="功德加速器" data-cost="25">
+                    <button class="relic-buy-btn w-full bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="gift" data-gift="功德加速器" data-cost="15">
                         🚀 功德加速器
-                        <div class="text-xs text-yellow-200 mt-1">修行功德翻倍1小时 | 消耗 25✨</div>
+                        <div class="text-xs text-yellow-200 mt-1">修行功德翻倍1小时 | 消耗 15✨</div>
                     </button>
-                    <button class="relic-buy-btn w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="gift" data-gift="智慧之光" data-cost="40">
+                    <button class="relic-buy-btn w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="gift" data-gift="智慧之光" data-cost="25">
                         💡 智慧之光
-                        <div class="text-xs text-blue-200 mt-1">直接提升一个境界 | 消耗 40✨</div>
+                        <div class="text-xs text-blue-200 mt-1">直接提升一个境界 | 消耗 25✨</div>
                     </button>
-                    <button class="relic-buy-btn w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="gift" data-gift="财富宝箱" data-cost="15">
+                    <button class="relic-buy-btn w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="gift" data-gift="财富宝箱" data-cost="8">
                         💰 财富宝箱
-                        <div class="text-xs text-green-200 mt-1">获得50财富值 | 消耗 15✨</div>
+                        <div class="text-xs text-green-200 mt-1">获得40财富值 | 消耗 8✨</div>
                     </button>
-                    <button class="relic-buy-btn w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="gift" data-gift="佛祖护佑" data-cost="60">
+                    <button class="relic-buy-btn w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="gift" data-gift="佛祖护佑" data-cost="35">
                         🙏 佛祖护佑
-                        <div class="text-xs text-purple-200 mt-1">时间消耗减半24小时 | 消耗 60✨</div>
+                        <div class="text-xs text-purple-200 mt-1">时间消耗减半24小时 | 消耗 35✨</div>
                     </button>
-                    <button class="relic-buy-btn w-full bg-gradient-to-r from-pink-600 to-red-600 hover:from-pink-700 hover:to-red-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="gift" data-gift="神秘礼盒" data-cost="100">
+                    <button class="relic-buy-btn w-full bg-gradient-to-r from-pink-600 to-red-600 hover:from-pink-700 hover:to-red-700 text-white py-2 px-3 rounded-lg font-bold text-sm transition-all duration-300" data-type="gift" data-gift="神秘礼盒" data-cost="50">
                         🎁 神秘礼盒
-                        <div class="text-xs text-pink-200 mt-1">随机获得超级奖励 | 消耗 100✨</div>
+                        <div class="text-xs text-pink-200 mt-1">随机获得超级奖励 | 消耗 50✨</div>
                     </button>
                 </div>
             </div>
@@ -634,23 +644,24 @@
         let meritPoints = 0;
         let prayCount = 0;
         let currentLevel = 0;
-        let lifePoints = 100; // 初始时间值
-        let wealthPoints = 50; // 初始财富值
+        let lifePoints = 120; // 初始时间值提升到120
+        let wealthPoints = 60; // 初始财富值提升到60
         let relicPoints = 0; // 舍利数量
         let gameOver = false;
         let lastRelicTime = Date.now(); // 上次获得舍利的时间
         let relicTimer = null; // 舍利定时器
         let activeBuffs = {}; // 激活的增益效果
-        let fortunePoints = 0; // 机缘值 (0-19)
+        let fortunePoints = 0; // 机缘值 (0-14)
         let totalActions = 0; // 总行动次数
+        let buttonCooldowns = {}; // 按钮冷却状态
         
         const levels = [
             { name: "凡人", requirement: 0, color: "text-gray-300" },
-            { name: "信徒", requirement: 25, color: "text-green-300" },
-            { name: "居士", requirement: 100, color: "text-blue-300" },
-            { name: "修行者", requirement: 250, color: "text-purple-300" },
-            { name: "菩萨", requirement: 500, color: "text-yellow-300" },
-            { name: "佛陀", requirement: 1000, color: "text-pink-300" }
+            { name: "信徒", requirement: 30, color: "text-green-300" },
+            { name: "居士", requirement: 120, color: "text-blue-300" },
+            { name: "修行者", requirement: 300, color: "text-purple-300" },
+            { name: "菩萨", requirement: 600, color: "text-yellow-300" },
+            { name: "佛陀", requirement: 1200, color: "text-pink-300" }
         ];
         
         const blessings = {
@@ -835,79 +846,79 @@
         
         let charityCount = 0; // 用于追踪行善次数
         
-        // 机缘事件数据库
+        // 机缘事件数据库 - 优化奖励数值
         const fortuneEvents = [
             {
                 title: "天降甘露",
                 description: "修行时天降甘露，滋润心田，功德大增！",
                 quote: "天降甘露润心田，功德圆满福无边",
-                rewards: { merit: [50, 100], life: [5, 15] }
+                rewards: { merit: [80, 150], life: [8, 18] }
             },
             {
                 title: "遇见高僧",
                 description: "路遇得道高僧，传授修行心法，智慧大开！",
                 quote: "高僧指路破迷津，一语点醒梦中人",
-                rewards: { merit: [80, 150], wealth: [10, 20] }
+                rewards: { merit: [120, 200], wealth: [15, 25] }
             },
             {
                 title: "拾得宝物",
                 description: "在古寺中发现珍贵舍利，佛光普照！",
                 quote: "古寺寻宝得舍利，佛光普照福慧齐",
-                rewards: { relic: [3, 8], merit: [30, 60] }
+                rewards: { relic: [5, 12], merit: [50, 100] }
             },
             {
                 title: "善缘相助",
                 description: "因往日善行，得到贵人相助，财富增长！",
                 quote: "善有善报天理循，贵人相助福临门",
-                rewards: { wealth: [20, 40], life: [8, 15] }
+                rewards: { wealth: [25, 40], life: [12, 20] }
             },
             {
                 title: "禅悟顿开",
                 description: "静坐冥想时突然顿悟，境界大幅提升！",
                 quote: "禅心一片月如水，顿悟人生真谛深",
-                rewards: { merit: [100, 200], life: [10, 20] }
+                rewards: { merit: [150, 300], life: [15, 25] }
             },
             {
                 title: "佛祖显灵",
                 description: "虔诚修行感动佛祖，获得全面加持！",
                 quote: "虔诚感动佛祖心，全面加持福慧深",
-                rewards: { merit: [60, 120], life: [15, 25], wealth: [15, 30], relic: [2, 5] }
+                rewards: { merit: [100, 180], life: [20, 30], wealth: [20, 35], relic: [3, 8] }
             },
             {
                 title: "功德回向",
                 description: "过往功德回向众生，获得意外福报！",
                 quote: "功德回向众生福，意外福报自然来",
-                rewards: { merit: [40, 80], wealth: [12, 25] }
+                rewards: { merit: [70, 130], wealth: [18, 30] }
             },
             {
                 title: "莲花盛开",
                 description: "心莲绽放，身心净化，时间延长！",
                 quote: "心莲绽放净尘埃，身心清净时延长",
-                rewards: { life: [20, 35], merit: [30, 70] }
+                rewards: { life: [25, 40], merit: [60, 120] }
             },
             {
                 title: "经书感应",
                 description: "诵读经书时产生感应，获得神秘力量！",
                 quote: "经书感应显神通，神秘力量助修行",
-                rewards: { merit: [70, 130], relic: [1, 4] }
+                rewards: { merit: [110, 200], relic: [2, 6] }
             },
             {
                 title: "慈悲心起",
                 description: "慈悲心大发，感化众生，功德无量！",
                 quote: "慈悲心起感众生，功德无量福慧增",
-                rewards: { merit: [90, 160], life: [12, 22] }
+                rewards: { merit: [140, 250], life: [18, 28] }
             },
             {
                 title: "财神眷顾",
                 description: "因布施行善，得财神眷顾，财源滚滚！",
                 quote: "布施行善财神顾，财源滚滚福满门",
-                rewards: { wealth: [30, 50], merit: [20, 50] }
+                rewards: { wealth: [35, 50], merit: [40, 80] }
             },
             {
                 title: "仙人指路",
                 description: "迷途中遇仙人指路，获得人生智慧！",
                 quote: "仙人指路破迷雾，人生智慧自然开",
-                rewards: { merit: [55, 110], wealth: [8, 18], life: [6, 12] }
+                rewards: { merit: [90, 160], wealth: [12, 22], life: [10, 18] }
             }
         ];
         
@@ -922,14 +933,14 @@
             lastLogin: null
         };
         
-        // 修行动作配置
+        // 修行动作配置 - 优化平衡
         const actions = {
-            pray: { min: 1, max: 5, type: 'pray', life: -1, wealth: 0 },
-            drum: { min: 2, max: 6, type: 'drum', life: -1, wealth: -2 },
-            charity: { min: 5, max: 15, type: 'charity', life: 2, wealth: -10 },
-            script: { min: 8, max: 20, type: 'script', life: -2, wealth: -5 },
-            fast: { min: 3, max: 8, type: 'fast', life: 1, wealth: -3 },
-            meditate: { min: 10, max: 25, type: 'meditate', life: -3, wealth: 0 }
+            pray: { min: 3, max: 8, type: 'pray', life: -1, wealth: 0 },
+            drum: { min: 5, max: 12, type: 'drum', life: -1, wealth: -4 },
+            charity: { min: 12, max: 25, type: 'charity', life: 4, wealth: -15 },
+            script: { min: 18, max: 35, type: 'script', life: -2, wealth: -8 },
+            fast: { min: 8, max: 15, type: 'fast', life: 2, wealth: -5 },
+            meditate: { min: 25, max: 50, type: 'meditate', life: -5, wealth: 0 }
         };
         
         // 获取按钮元素
@@ -940,15 +951,64 @@
         const fastButton = document.getElementById('fastButton');
         const meditateButton = document.getElementById('meditateButton');
         
-        // 赚钱动作配置
+        // 赚钱动作配置 - 优化平衡
         const wealthActions = {
-            work: { min: 5, max: 10, life: -2, wealth: 1 },
-            business: { min: 8, max: 15, life: -3, wealth: 1 }
+            work: { min: 8, max: 15, life: -3, wealth: 1 },
+            business: { min: 15, max: 25, life: -5, wealth: 1 }
         };
+        
+        // 冷却系统函数
+        function startCooldown(buttonId, button) {
+            const cooldownTime = 3000; // 3秒冷却
+            buttonCooldowns[buttonId] = Date.now() + cooldownTime;
+            
+            // 禁用按钮并改变样式
+            button.disabled = true;
+            button.style.opacity = '0.5';
+            button.style.cursor = 'not-allowed';
+            
+            // 获取按钮文本元素
+            const buttonText = button.querySelector('span');
+            const originalText = buttonText.textContent;
+            
+            // 开始倒计时
+            const countdown = setInterval(() => {
+                const remaining = buttonCooldowns[buttonId] - Date.now();
+                
+                if (remaining <= 0) {
+                    // 冷却结束
+                    clearInterval(countdown);
+                    delete buttonCooldowns[buttonId];
+                    
+                    // 恢复按钮状态
+                    button.disabled = false;
+                    button.style.opacity = '1';
+                    button.style.cursor = 'pointer';
+                    buttonText.textContent = originalText;
+                } else {
+                    // 显示倒计时
+                    const seconds = Math.ceil(remaining / 1000);
+                    buttonText.textContent = `冷却中... ${seconds}s`;
+                }
+            }, 100);
+        }
+        
+        function isButtonOnCooldown(buttonId) {
+            return buttonCooldowns[buttonId] && Date.now() < buttonCooldowns[buttonId];
+        }
         
         // 通用修行函数
         function performAction(actionType, button) {
             if (gameOver) return;
+            
+            const buttonId = button.id;
+            
+            // 检查冷却状态
+            if (isButtonOnCooldown(buttonId)) {
+                const remaining = Math.ceil((buttonCooldowns[buttonId] - Date.now()) / 1000);
+                showBlessing(`⏰ 请等待 ${remaining} 秒后再修行！`);
+                return;
+            }
             
             const action = actions[actionType];
             
@@ -963,6 +1023,9 @@
                 showBlessing("⚠️ 时间不足，无法进行此修行！");
                 return;
             }
+            
+            // 开始冷却
+            startCooldown(buttonId, button);
             
             const baseMerit = Math.floor(Math.random() * (action.max - action.min + 1)) + action.min;
             const merit = getModifiedMerit(baseMerit);
@@ -979,7 +1042,7 @@
             showMeritPopup(merit);
             
             // 确保数值在合理范围内
-            if (lifePoints > 100) lifePoints = 100;
+            if (lifePoints > 120) lifePoints = 120;
             if (wealthPoints > 100) wealthPoints = 100;
             if (wealthPoints < 0) wealthPoints = 0;
             
@@ -987,8 +1050,8 @@
                 charityCount++;
             }
             
-            // 检查机缘触发
-            if (fortunePoints >= 20) {
+            // 检查机缘触发 - 改为15次
+            if (fortunePoints >= 15) {
                 fortunePoints = 0; // 重置机缘值
                 setTimeout(() => {
                     triggerFortune();
@@ -1018,12 +1081,6 @@
             
             // 检查成就
             checkAchievements();
-            
-            // 按钮反馈
-            button.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                button.style.transform = 'scale(1)';
-            }, 150);
         }
         
         // 赚钱函数
@@ -1046,11 +1103,11 @@
             wealthPoints += wealth;
             
             // 确保数值在合理范围内
-            if (lifePoints > 100) lifePoints = 100;
+            if (lifePoints > 120) lifePoints = 120;
             if (wealthPoints > 100) wealthPoints = 100;
             
             // 检查机缘触发
-            if (fortunePoints >= 20) {
+            if (fortunePoints >= 15) {
                 fortunePoints = 0; // 重置机缘值
                 setTimeout(() => {
                     triggerFortune();
@@ -1166,7 +1223,7 @@
             }
             if (rewards.life) {
                 lifePoints += rewards.life;
-                if (lifePoints > 100) lifePoints = 100;
+                if (lifePoints > 120) lifePoints = 120;
             }
             if (rewards.wealth) {
                 wealthPoints += rewards.wealth;
@@ -1276,21 +1333,21 @@
             wealthCountEl.textContent = wealthPoints;
             relicCountEl.textContent = relicPoints;
             topRelicCountEl.textContent = relicPoints;
-            fortuneCountEl.textContent = fortunePoints + '/20';
+            fortuneCountEl.textContent = fortunePoints + '/15';
             
             // 更新机缘进度条
-            const fortunePercentage = (fortunePoints / 20) * 100;
+            const fortunePercentage = (fortunePoints / 15) * 100;
             fortuneBar.style.width = fortunePercentage + '%';
             
             // 更新寿命条
-            const lifePercentage = (lifePoints / 100) * 100;
+            const lifePercentage = (lifePoints / 120) * 100;
             lifeBar.style.width = Math.max(lifePercentage, 0) + '%';
             
             // 根据时间值改变颜色
-            if (lifePoints <= 20) {
+            if (lifePoints <= 25) {
                 lifeBar.className = 'bg-gradient-to-r from-red-600 to-red-800 h-full rounded-full transition-all duration-500';
                 lifeCountEl.style.color = '#ff6b6b';
-            } else if (lifePoints <= 50) {
+            } else if (lifePoints <= 60) {
                 lifeBar.className = 'bg-gradient-to-r from-yellow-500 to-orange-500 h-full rounded-full transition-all duration-500';
                 lifeCountEl.style.color = '#ffa500';
             } else {
@@ -1303,10 +1360,10 @@
             wealthBar.style.width = Math.max(wealthPercentage, 0) + '%';
             
             // 根据财富值改变颜色
-            if (wealthPoints <= 10) {
+            if (wealthPoints <= 15) {
                 wealthBar.className = 'bg-gradient-to-r from-gray-500 to-gray-600 h-full rounded-full transition-all duration-500';
                 wealthCountEl.style.color = '#ffd700';
-            } else if (wealthPoints <= 30) {
+            } else if (wealthPoints <= 40) {
                 wealthBar.className = 'bg-gradient-to-r from-yellow-600 to-yellow-700 h-full rounded-full transition-all duration-500';
                 wealthCountEl.style.color = '#ffd700';
             } else {
@@ -1408,23 +1465,23 @@
                 
                 // 根据不同成就类型检查条件
                 switch(index) {
-                    case 0: // 初心者 - 修行10次
-                        unlocked = prayCount >= 10;
+                    case 0: // 初心者 - 修行15次
+                        unlocked = prayCount >= 15;
                         break;
                     case 1: // 虔诚者 - 修行50次
                         unlocked = prayCount >= 50;
                         break;
-                    case 2: // 修行者 - 修行100次
-                        unlocked = prayCount >= 100;
+                    case 2: // 修行者 - 修行150次
+                        unlocked = prayCount >= 150;
                         break;
-                    case 3: // 善行者 - 行善事50次
-                        unlocked = charityCount >= 50;
+                    case 3: // 善行者 - 行善事30次
+                        unlocked = charityCount >= 30;
                         break;
-                    case 4: // 觉悟者 - 修行500次
-                        unlocked = prayCount >= 500;
+                    case 4: // 觉悟者 - 修行400次
+                        unlocked = prayCount >= 400;
                         break;
-                    case 5: // 大师 - 功德值1000
-                        unlocked = meritPoints >= 1000;
+                    case 5: // 大师 - 功德值1500
+                        unlocked = meritPoints >= 1500;
                         break;
                 }
                 
@@ -1495,9 +1552,9 @@
             }
             
             // 分享后增加额外功德奖励
-            meritPoints += 5;
+            meritPoints += 8;
             updateDisplay();
-            showBlessing("🎉 布道分享获得额外功德 +5！");
+            showBlessing("🎉 布道分享获得额外功德 +8！");
             
             // 关闭弹窗
             setTimeout(() => {
@@ -1531,8 +1588,8 @@
             meritPoints = 0;
             prayCount = 0;
             currentLevel = 0;
-            lifePoints = 100;
-            wealthPoints = 50;
+            lifePoints = 120;
+            wealthPoints = 60;
             relicPoints = 0;
             charityCount = 0;
             gameOver = false;
@@ -1540,6 +1597,33 @@
             activeBuffs = {};
             fortunePoints = 0;
             totalActions = 0;
+            
+            // 重置所有按钮冷却
+            Object.keys(buttonCooldowns).forEach(key => {
+                delete buttonCooldowns[key];
+            });
+            
+            // 恢复所有按钮状态
+            [prayButton, drumButton, charityButton, scriptButton, fastButton, meditateButton].forEach(button => {
+                if (button) {
+                    button.disabled = false;
+                    button.style.opacity = '1';
+                    button.style.cursor = 'pointer';
+                    const buttonText = button.querySelector('span');
+                    if (buttonText) {
+                        // 恢复原始文本
+                        const buttonTexts = {
+                            'prayButton': '🙏 拜佛祈福',
+                            'drumButton': '🥁 敲木鱼',
+                            'charityButton': '💝 行善事',
+                            'scriptButton': '📜 抄经书',
+                            'fastButton': '🥬 吃斋念佛',
+                            'meditateButton': '🧘 禅定冥想'
+                        };
+                        buttonText.textContent = buttonTexts[button.id] || buttonText.textContent;
+                    }
+                }
+            });
             
             // 重置成就
             achievements.forEach(achievement => {
@@ -1756,8 +1840,8 @@
                 meritPoints = gameData.meritPoints || 0;
                 prayCount = gameData.prayCount || 0;
                 currentLevel = gameData.currentLevel || 0;
-                lifePoints = gameData.lifePoints || 100;
-                wealthPoints = gameData.wealthPoints || 50;
+                lifePoints = gameData.lifePoints || 120;
+                wealthPoints = gameData.wealthPoints || 60;
                 charityCount = gameData.charityCount || 0;
                 gameOver = false;
                 
@@ -1798,7 +1882,7 @@
             userInfo.classList.add('hidden');
             
             showBlessing("👋 已退出登录，感谢您的修行！");
-            closeLoginModal();
+            closeLoginModalFunc();
         }
         
         // 舍利子系统功能
@@ -1875,7 +1959,7 @@
             const cost = parseInt(button.dataset.cost);
             
             if (relicPoints < cost) {
-                showBlessing("✨ 舍利子不足！");
+                showBlessing("✨ 舍利不足！");
                 return;
             }
             
@@ -1883,12 +1967,12 @@
             
             if (type === 'life') {
                 const amount = parseInt(button.dataset.amount);
-                if (amount === 100) {
-                    lifePoints = 100; // 满血复活
-                    showBlessing("💖 满血复活！时间已恢复至100！");
+                if (amount === 120) {
+                    lifePoints = 120; // 满血复活
+                    showBlessing("💖 满血复活！时间已恢复至120！");
                 } else {
                     lifePoints += amount;
-                    if (lifePoints > 100) lifePoints = 100;
+                    if (lifePoints > 120) lifePoints = 120;
                     showBlessing(`💖 时间增加 ${amount} 点！`);
                 }
             } else if (type === 'gift') {
@@ -1920,15 +2004,15 @@
                         showMeritPopup(meritGained);
                         showBlessing("💡 智慧之光照耀！境界直接提升！");
                     } else {
-                        meritPoints += 500;
-                        showMeritPopup(500);
+                        meritPoints += 800;
+                        showMeritPopup(800);
                         showBlessing("💡 智慧之光照耀！功德大幅增加！");
                     }
                     break;
                 case '财富宝箱':
-                    wealthPoints += 50;
+                    wealthPoints += 40;
                     if (wealthPoints > 100) wealthPoints = 100;
-                    showBlessing("💰 财富宝箱开启！获得50财富值！");
+                    showBlessing("💰 财富宝箱开启！获得40财富值！");
                     break;
                 case '佛祖护佑':
                     activeBuffs.lifeProtection = Date.now() + (24 * 60 * 60 * 1000); // 24小时
@@ -1937,13 +2021,13 @@
                 case '神秘礼盒':
                     const randomRewards = [
                         () => { 
-                            meritPoints += 1000; 
-                            showMeritPopup(1000);
-                            return "获得1000功德值！"; 
+                            meritPoints += 1500; 
+                            showMeritPopup(1500);
+                            return "获得1500功德值！"; 
                         },
-                        () => { lifePoints = 100; return "时间完全恢复！"; },
+                        () => { lifePoints = 120; return "时间完全恢复！"; },
                         () => { wealthPoints = 100; return "财富值满额！"; },
-                        () => { relicPoints += 50; return "获得50个舍利！"; },
+                        () => { relicPoints += 80; return "获得80个舍利！"; },
                         () => { 
                             activeBuffs.meritBoost = Date.now() + (3 * 60 * 60 * 1000);
                             activeBuffs.lifeProtection = Date.now() + (3 * 60 * 60 * 1000);
@@ -1980,9 +2064,9 @@
             return finalCost;
         }
         
-        // 时间衰减系统 - 每小时减少1点时间
+        // 时间衰减系统 - 每2分钟减少1点时间
         function startLifeDecay() {
-            // 测试模式：每30秒减少1点时间（正式版本应该是60 * 60 * 1000）
+            // 测试模式：每2分钟减少1点时间（正式版本应该是60 * 60 * 1000）
             setInterval(() => {
                 if (!gameOver && lifePoints > 0) {
                     lifePoints -= 1;
@@ -1990,13 +2074,13 @@
                     
                     if (lifePoints <= 0) {
                         gameOverSequence();
-                    } else if (lifePoints <= 10) {
+                    } else if (lifePoints <= 15) {
                         showBlessing("⚠️ 时间即将耗尽！请尽快补充！");
                     }
                 }
-            }, 30 * 1000); // 测试模式：30秒执行一次
+            }, 2 * 60 * 1000); // 测试模式：2分钟执行一次
         }
 
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9717711bc65de2f0',t:'MTc1NTU4MzM0NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9761b69905ad0930',t:'MTc1NjM2MjEzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
